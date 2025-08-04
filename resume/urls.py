@@ -4,8 +4,8 @@ from .views import ResumeUploadView, ResumeStatusView, ResumeListView, Supported
 app_name = 'resume'
 
 urlpatterns = [
-    path('upload/', ResumeUploadView.as_view(), name='resume_upload'),
-    path('status/<int:resume_id>/', ResumeStatusView.as_view(), name='resume_status'),
-    path('list/', ResumeListView.as_view(), name='resume_list'),
-    path('supported-types/', SupportedFileTypesView.as_view(), name='supported_file_types'),
+    path(r'upload/', ResumeUploadView.as_view(), name='resume_upload'),
+    path(r'status/<int:resume_id>/', ResumeStatusView.as_view(), name='resume_status'),
+    path(r'list/', ResumeListView.as_view(), name='resume_list'),
+    path(r'supported-types/', SupportedFileTypesView.as_view(), name='supported_file_types'),
 ] 

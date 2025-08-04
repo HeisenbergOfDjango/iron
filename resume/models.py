@@ -6,11 +6,11 @@ from .enums import ProcessingStatus, QuestionCategory
 
 class Resume(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='resumes')
-    file = models.FileField(upload_to='resumes/', null=True, blank=True) # right now we are not using this field
+    file = models.FileField(upload_to='resumes/', null=True, blank=True)  # Not used - files are processed in memory
     original_filename = models.CharField(max_length=255)
     file_type = models.CharField(max_length=50, null=True, blank=True)  # pdf, doc, docx, txt, etc.
     file_size = models.IntegerField(null=True, blank=True)  # in bytes
-    parsed_content = models.TextField(null=True, blank=True)
+    parsed_content = models.TextField(null=True, blank=True)  # Extracted text content from the file
     processing_status = models.CharField(max_length=20, choices=ProcessingStatus.get_choices(), default=ProcessingStatus.PENDING.value)
     error_message = models.TextField(null=True, blank=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
